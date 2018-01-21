@@ -13,11 +13,44 @@ public class MainActivity extends AppCompatActivity {
  public int goodScore =0;
  public int wrongScore =0;
  public int noScore =0;
+ RadioGroup RadioGrupQuizA,RadioGrupQuizB,RadioGrupQuizC,RadioGrupQuizD,RadioGrupQuizE;
+ RadioButton radioButtonDerA,radioButtonDieA,radioButtonDasA,
+             radioButtonDerB, radioButtonDieB, radioButtonDasB,
+             radioButtonDerC,radioButtonDieC,radioButtonDasC,
+             radioButtonDerD, radioButtonDieD, radioButtonDasD,
+             radioButtonDerE,radioButtonDieE,radioButtonDasE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RadioGrupQuizA = findViewById(R.id.aQuestionRadioGroup);
+        RadioGrupQuizB= findViewById(R.id.bQuestionRadioGroup);
+        RadioGrupQuizC= findViewById(R.id.cQuestionRadioGroup);
+        RadioGrupQuizD= findViewById(R.id.dQuestionRadioGroup);
+        RadioGrupQuizE= findViewById(R.id.eQuestionRadioGroup);
+
+        radioButtonDerA = findViewById(R.id.aDer);
+        radioButtonDieA = findViewById(R.id.aDie);
+        radioButtonDasA = findViewById(R.id.aDas);
+
+        radioButtonDerB = findViewById(R.id.bDer);
+        radioButtonDieB = findViewById(R.id.bDie);
+        radioButtonDasB = findViewById(R.id.bDas);
+
+        radioButtonDerC = findViewById(R.id.cDer);
+        radioButtonDieC = findViewById(R.id.cDie);
+        radioButtonDasC = findViewById(R.id.cDas);
+
+        radioButtonDerD = findViewById(R.id.dDer);
+        radioButtonDieD = findViewById(R.id.dDie);
+        radioButtonDasD = findViewById(R.id.dDas);
+
+        radioButtonDerE = findViewById(R.id.eDer);
+        radioButtonDieE = findViewById(R.id.eDie);
+        radioButtonDasE = findViewById(R.id.eDas);
+
     }
 
 
@@ -52,41 +85,32 @@ UserName.getText().clear();
 
     /**
      *
-     * @param groupId  //answer radiogrup id
+     * @param groupSelectedButtonId  //answer radiogrup id
      * @param derButtonId // answer radioButton id
      * @param dieButtonId // answer radioButton id
      * @param dasButtonId // answer radioButton id
      * @param goodAnswer // correct answer
      */
-    public void answerControl(int groupId, int derButtonId, int dieButtonId, int dasButtonId,String goodAnswer
+    public void answerControl(int groupSelectedButtonId, int derButtonId, int dieButtonId, int dasButtonId,String goodAnswer
     )
     {
-        RadioGroup radioGroup = (RadioGroup) findViewById( groupId);
-        int selectedId = radioGroup.getCheckedRadioButtonId();
-
-        RadioButton radioButtonDer = (RadioButton) findViewById(derButtonId);
-        RadioButton radioButtonDie = (RadioButton) findViewById(dieButtonId);
-        RadioButton radioButtonDas = (RadioButton) findViewById(dasButtonId);
-
-
-
    // This is checking of RadioButton designation
 
-        if(selectedId == radioButtonDer.getId()) {
+        if(groupSelectedButtonId == derButtonId) {
             //correct answer verification
             if (goodAnswer.equalsIgnoreCase("der")){
                 goodScore++;
             } else {
                 wrongScore++;
             }
-        } else if(selectedId == radioButtonDie.getId()) {
+        } else if(groupSelectedButtonId == dieButtonId) {
             //correct answer verification
             if (goodAnswer.equalsIgnoreCase("die")){
                 goodScore++;
             }else {
                 wrongScore++;
             }
-        } else  if(selectedId == radioButtonDas.getId()){
+        } else  if(groupSelectedButtonId == dasButtonId){
             //correct answer verification
             if (goodAnswer.equalsIgnoreCase("das")){
                 goodScore++;
@@ -110,38 +134,38 @@ UserName.getText().clear();
     public void enableGroupe(boolean value){
 
 
-        RadioGroup dataRadio;
-//1.Question Radiogrup clear
-        dataRadio = (RadioGroup) findViewById(R.id.aQuestionRadioGroup);
-        for (int i = 0; i < dataRadio.getChildCount(); i++) {
-            dataRadio.getChildAt(i).setEnabled(value);
+     //1.Question Radiogrup clear
+
+
+        for (int i = 0; i < RadioGrupQuizA.getChildCount(); i++) {
+            RadioGrupQuizA.getChildAt(i).setEnabled(value);
         }
 
 
 //2.Question Radiogrup clear
 
-        dataRadio = (RadioGroup) findViewById(R.id.bQuestionRadioGroup);
-        for (int i = 0; i < dataRadio.getChildCount(); i++) {
-            dataRadio.getChildAt(i).setEnabled(value);
+
+        for (int i = 0; i < RadioGrupQuizB.getChildCount(); i++) {
+            RadioGrupQuizB.getChildAt(i).setEnabled(value);
         }
 //3.Question Radiogrup clear
 
-        dataRadio = (RadioGroup) findViewById(R.id.cQuestionRadioGroup);
-        for (int i = 0; i < dataRadio.getChildCount(); i++) {
-            dataRadio.getChildAt(i).setEnabled(value);
+
+        for (int i = 0; i < RadioGrupQuizC.getChildCount(); i++) {
+            RadioGrupQuizC.getChildAt(i).setEnabled(value);
         }
 
 //4.Question Radiogrup clear
 
-        dataRadio = (RadioGroup) findViewById(R.id.dQuestionRadioGroup);
-        for (int i = 0; i < dataRadio.getChildCount(); i++) {
-            dataRadio.getChildAt(i).setEnabled(value);
+
+        for (int i = 0; i < RadioGrupQuizD.getChildCount(); i++) {
+            RadioGrupQuizD.getChildAt(i).setEnabled(value);
         }
 //5.Question Radiogrup clear
 
-        dataRadio = (RadioGroup) findViewById(R.id.eQuestionRadioGroup);
-        for (int i = 0; i < dataRadio.getChildCount(); i++) {
-            dataRadio.getChildAt(i).setEnabled(value);
+
+        for (int i = 0; i < RadioGrupQuizE.getChildCount(); i++) {
+            RadioGrupQuizE.getChildAt(i).setEnabled(value);
         }
 
 
@@ -153,27 +177,22 @@ UserName.getText().clear();
         goodScore = 0;
         wrongScore =0;
         noScore =0;
-        RadioGroup dataRadio;
+        //RadioGroup dataRadio;
 //1.Question Radiogrup clear
-        dataRadio = (RadioGroup) findViewById(R.id.aQuestionRadioGroup);
-        dataRadio.clearCheck();
+        RadioGrupQuizA.clearCheck();
 
 //2.Question Radiogrup clear
 
-        dataRadio = (RadioGroup) findViewById(R.id.bQuestionRadioGroup);
-        dataRadio.clearCheck();
+        RadioGrupQuizB.clearCheck();
 //3.Question Radiogrup clear
 
-        dataRadio = (RadioGroup) findViewById(R.id.cQuestionRadioGroup);
-        dataRadio.clearCheck();
+        RadioGrupQuizC.clearCheck();
 //4.Question Radiogrup clear
 
-        dataRadio = (RadioGroup) findViewById(R.id.dQuestionRadioGroup);
-        dataRadio.clearCheck();
+        RadioGrupQuizD.clearCheck();
 //5.Question Radiogrup clear
 
-        dataRadio = (RadioGroup) findViewById(R.id.eQuestionRadioGroup);
-        dataRadio.clearCheck();
+        RadioGrupQuizE.clearCheck();
 
 //RadioGroup enable true
         enableGroupe(true);
@@ -184,12 +203,11 @@ UserName.getText().clear();
     public void onClick(View v) {
 
         //answers control 1-5 questions
-        answerControl(R.id.aQuestionRadioGroup,R.id.aDer,R.id.aDie,R.id.aDas,"der");
-        answerControl(R.id.bQuestionRadioGroup,R.id.bDer,R.id.bDie,R.id.bDas,"der");
-        answerControl(R.id.cQuestionRadioGroup,R.id.cDer,R.id.cDie,R.id.cDas,"der");
-        answerControl(R.id.dQuestionRadioGroup,R.id.dDer,R.id.dDie,R.id.dDas,"der");
-        answerControl(R.id.eQuestionRadioGroup,R.id.eDer,R.id.eDie,R.id.eDas,"der");
-
+        answerControl( RadioGrupQuizA.getCheckedRadioButtonId() ,radioButtonDerA.getId() ,radioButtonDieA.getId(),radioButtonDasA.getId(),"der");
+        answerControl( RadioGrupQuizB.getCheckedRadioButtonId() ,radioButtonDerB.getId() ,radioButtonDieB.getId(),radioButtonDasB.getId(),"der");
+        answerControl( RadioGrupQuizC.getCheckedRadioButtonId() ,radioButtonDerC.getId() ,radioButtonDieC.getId(),radioButtonDasC.getId(),"der");
+        answerControl( RadioGrupQuizD.getCheckedRadioButtonId() ,radioButtonDerD.getId() ,radioButtonDieD.getId(),radioButtonDasD.getId(),"der");
+        answerControl( RadioGrupQuizE.getCheckedRadioButtonId() ,radioButtonDerE.getId() ,radioButtonDieE.getId(),radioButtonDasE.getId(),"der");
 
       //  RadioGroup Enable false
         enableGroupe(false);
