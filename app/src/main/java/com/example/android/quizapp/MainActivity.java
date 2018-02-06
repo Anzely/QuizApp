@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
  public int goodScore =0;
  public int wrongScore =0;
  public int noScore =0;
- RadioGroup RadioGrupQuizA,RadioGrupQuizB,RadioGrupQuizC,RadioGrupQuizD,RadioGrupQuizE;
+ RadioGroup RadioGroupQuizA, RadioGroupQuizB, RadioGroupQuizC, RadioGroupQuizD, RadioGroupQuizE;
  RadioButton radioButtonDerA,radioButtonDieA,radioButtonDasA,
              radioButtonDerB, radioButtonDieB, radioButtonDasB,
              radioButtonDerC,radioButtonDieC,radioButtonDasC,
@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RadioGrupQuizA = findViewById(R.id.aQuestionRadioGroup);
-        RadioGrupQuizB= findViewById(R.id.bQuestionRadioGroup);
-        RadioGrupQuizC= findViewById(R.id.cQuestionRadioGroup);
-        RadioGrupQuizD= findViewById(R.id.dQuestionRadioGroup);
-        RadioGrupQuizE= findViewById(R.id.eQuestionRadioGroup);
+        RadioGroupQuizA = findViewById(R.id.aQuestionRadioGroup);
+        RadioGroupQuizB = findViewById(R.id.bQuestionRadioGroup);
+        RadioGroupQuizC = findViewById(R.id.cQuestionRadioGroup);
+        RadioGroupQuizD = findViewById(R.id.dQuestionRadioGroup);
+        RadioGroupQuizE = findViewById(R.id.eQuestionRadioGroup);
 
         radioButtonDerA = findViewById(R.id.aDer);
         radioButtonDieA = findViewById(R.id.aDie);
@@ -137,35 +137,35 @@ UserName.getText().clear();
      //1.Question Radiogrup clear
 
 
-        for (int i = 0; i < RadioGrupQuizA.getChildCount(); i++) {
-            RadioGrupQuizA.getChildAt(i).setEnabled(value);
+        for (int i = 0; i < RadioGroupQuizA.getChildCount(); i++) {
+            RadioGroupQuizA.getChildAt(i).setEnabled(value);
         }
 
 
 //2.Question Radiogrup clear
 
 
-        for (int i = 0; i < RadioGrupQuizB.getChildCount(); i++) {
-            RadioGrupQuizB.getChildAt(i).setEnabled(value);
+        for (int i = 0; i < RadioGroupQuizB.getChildCount(); i++) {
+            RadioGroupQuizB.getChildAt(i).setEnabled(value);
         }
 //3.Question Radiogrup clear
 
 
-        for (int i = 0; i < RadioGrupQuizC.getChildCount(); i++) {
-            RadioGrupQuizC.getChildAt(i).setEnabled(value);
+        for (int i = 0; i < RadioGroupQuizC.getChildCount(); i++) {
+            RadioGroupQuizC.getChildAt(i).setEnabled(value);
         }
 
 //4.Question Radiogrup clear
 
 
-        for (int i = 0; i < RadioGrupQuizD.getChildCount(); i++) {
-            RadioGrupQuizD.getChildAt(i).setEnabled(value);
+        for (int i = 0; i < RadioGroupQuizD.getChildCount(); i++) {
+            RadioGroupQuizD.getChildAt(i).setEnabled(value);
         }
 //5.Question Radiogrup clear
 
 
-        for (int i = 0; i < RadioGrupQuizE.getChildCount(); i++) {
-            RadioGrupQuizE.getChildAt(i).setEnabled(value);
+        for (int i = 0; i < RadioGroupQuizE.getChildCount(); i++) {
+            RadioGroupQuizE.getChildAt(i).setEnabled(value);
         }
 
 
@@ -179,20 +179,20 @@ UserName.getText().clear();
         noScore =0;
         //RadioGroup dataRadio;
 //1.Question Radiogrup clear
-        RadioGrupQuizA.clearCheck();
+        RadioGroupQuizA.clearCheck();
 
 //2.Question Radiogrup clear
 
-        RadioGrupQuizB.clearCheck();
+        RadioGroupQuizB.clearCheck();
 //3.Question Radiogrup clear
 
-        RadioGrupQuizC.clearCheck();
+        RadioGroupQuizC.clearCheck();
 //4.Question Radiogrup clear
 
-        RadioGrupQuizD.clearCheck();
+        RadioGroupQuizD.clearCheck();
 //5.Question Radiogrup clear
 
-        RadioGrupQuizE.clearCheck();
+        RadioGroupQuizE.clearCheck();
 
 //RadioGroup enable true
         enableGroupe(true);
@@ -203,11 +203,11 @@ UserName.getText().clear();
     public void onClick(View v) {
 
         //answers control 1-5 questions
-        answerControl( RadioGrupQuizA.getCheckedRadioButtonId() ,radioButtonDerA.getId() ,radioButtonDieA.getId(),radioButtonDasA.getId(),"der");
-        answerControl( RadioGrupQuizB.getCheckedRadioButtonId() ,radioButtonDerB.getId() ,radioButtonDieB.getId(),radioButtonDasB.getId(),"der");
-        answerControl( RadioGrupQuizC.getCheckedRadioButtonId() ,radioButtonDerC.getId() ,radioButtonDieC.getId(),radioButtonDasC.getId(),"der");
-        answerControl( RadioGrupQuizD.getCheckedRadioButtonId() ,radioButtonDerD.getId() ,radioButtonDieD.getId(),radioButtonDasD.getId(),"der");
-        answerControl( RadioGrupQuizE.getCheckedRadioButtonId() ,radioButtonDerE.getId() ,radioButtonDieE.getId(),radioButtonDasE.getId(),"der");
+        answerControl( RadioGroupQuizA.getCheckedRadioButtonId() ,radioButtonDerA.getId() ,radioButtonDieA.getId(),radioButtonDasA.getId(),"der");
+        answerControl( RadioGroupQuizB.getCheckedRadioButtonId() ,radioButtonDerB.getId() ,radioButtonDieB.getId(),radioButtonDasB.getId(),"der");
+        answerControl( RadioGroupQuizC.getCheckedRadioButtonId() ,radioButtonDerC.getId() ,radioButtonDieC.getId(),radioButtonDasC.getId(),"der");
+        answerControl( RadioGroupQuizD.getCheckedRadioButtonId() ,radioButtonDerD.getId() ,radioButtonDieD.getId(),radioButtonDasD.getId(),"der");
+        answerControl( RadioGroupQuizE.getCheckedRadioButtonId() ,radioButtonDerE.getId() ,radioButtonDieE.getId(),radioButtonDasE.getId(),"der");
 
       //  RadioGroup Enable false
         enableGroupe(false);
